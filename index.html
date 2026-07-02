@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,15 +8,57 @@
   </head>
 
   <body>
-    <div id="app">
-      <header>
-        <h1>Interface Lab</h1>
-        <p>A collection of small interactive UI experiments.</p>
+    <div class="app-shell">
+      <header class="app-header">
+        <div class="app-header-title">
+          <h1>Interface Lab</h1>
+          <p>A collection of small interactive UI experiments</p>
+        </div>
+
+        <nav class="primary-nav">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+          </ul>
+        </nav>
       </header>
 
-      <main>
-        <p>This is the main content.</p>
+      <main class="app-main">
+        <aside class="lab-selector">
+          <h2>Labs</h2>
+
+          <ul>
+            <li><button type="button">Slider</button></li>
+            <li><button type="button">Button</button></li>
+            <li><button type="button">Checkbox</button></li>
+          </ul>
+        </aside>
+
+        <section class="view" id="properties-view">
+          <h2 id="properties-view-title">Properties</h2>
+
+          <div id="properties-root"></div>
+        </section>
+
+        <section class="view" id="preview-view">
+          <h2 id="preview-view-title">Preview</h2>
+
+          <div id="preview-root"></div>
+        </section>
       </main>
+
+      <footer class="app-footer">
+        <p>Created by Tord Løfgren</p>
+        <p>
+          <a
+            href="https://github.com/TordLoefgren"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+        </p>
+      </footer>
     </div>
 
     <script type="module" src="/src/main.ts"></script>

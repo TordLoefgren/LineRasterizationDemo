@@ -10,38 +10,49 @@
   <body>
     <div class="app-shell">
       <header class="app-header">
-        <div class="app-header-title">
-          <h1>Interface Lab</h1>
-          <p>A collection of small interactive UI experiments</p>
-        </div>
+        <hgroup class="app-header__heading">
+          <h1 class="app-header__title">Interface Lab</h1>
+          <p class="app-header__subtitle">
+            A collection of small interactive UI experiments
+          </p>
+        </hgroup>
 
         <nav class="primary-nav">
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
+          <ul class="primary-nav__list">
+            <li class="primary-nav__item"><a href="/">Home</a></li>
+            <li class="primary-nav__item"><a href="/about">About</a></li>
+            <li class="primary-nav__item"><a href="/projects">Projects</a></li>
           </ul>
         </nav>
       </header>
 
       <main class="app-main">
         <aside class="lab-selector">
-          <h2>Labs</h2>
+          <h2 class="lab-selector__title">Labs</h2>
 
-          <ul>
-            <li><button type="button">Slider</button></li>
-            <li><button type="button">Button</button></li>
-            <li><button type="button">Checkbox</button></li>
+          <ul class="lab-selector__list">
+            <li class="lab-selector__item">
+              <button class="lab-selector__button" type="button">Slider</button>
+            </li>
+            <li class="lab-selector__item">
+              <button class="lab-selector__button" type="button">Button</button>
+            </li>
+            <li class="lab-selector__item">
+              <button class="lab-selector__button" type="button">
+                Checkbox
+              </button>
+            </li>
           </ul>
         </aside>
 
-        <section class="view" id="properties-view">
-          <h2 id="properties-view-title">Properties</h2>
+        <section class="view view--properties" id="properties-view">
+          <h2 class="view__title" id="properties-view-title">Properties</h2>
 
           <div id="properties-root"></div>
         </section>
 
-        <section class="view" id="preview-view">
-          <h2 id="preview-view-title">Preview</h2>
+        <section class="view view--preview" id="preview-view">
+          <h2 class="view__title" id="preview-view-title">Preview</h2>
 
           <div id="preview-root"></div>
         </section>

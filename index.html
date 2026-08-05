@@ -4,61 +4,156 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Interface Lab</title>
+    <title>Line Rasterization Demo</title>
   </head>
 
   <body>
     <div class="app-shell">
-      <header class="app-header">
+      <header class="app-shell__header app-header">
         <hgroup class="app-header__heading">
-          <h1 class="app-header__title">Interface Lab</h1>
+          <h1 class="app-header__title">Line Rasterization Demo</h1>
           <p class="app-header__subtitle">
-            A collection of small interactive UI experiments
+            Interactive line rasterization, cell by cell.
           </p>
         </hgroup>
 
         <nav class="primary-nav">
           <ul class="primary-nav__list">
-            <li class="primary-nav__item"><a href="/">Home</a></li>
-            <li class="primary-nav__item"><a href="/about">About</a></li>
-            <li class="primary-nav__item"><a href="/projects">Projects</a></li>
+            <li class="primary-nav__item"><a href="/">Demo</a></li>
+            <li class="primary-nav__item"><a href="/">Algorithms</a></li>
+            <li class="primary-nav__item"><a href="/">About</a></li>
           </ul>
         </nav>
       </header>
 
-      <main class="app-main">
-        <aside class="lab-selector">
-          <h2 class="lab-selector__title">Labs</h2>
+      <main class="app-shell__main workspace">
+        <section class="workspace__algorithm-selector panel algorithm-selector">
+          <h2 class="panel__title">Algorithm</h2>
 
-          <ul class="lab-selector__list">
-            <li class="lab-selector__item">
-              <button class="lab-selector__button" type="button">Slider</button>
+          <ul class="algorithm-selector__list">
+            <li class="algorithm-selector__item">
+              <button class="algorithm-selector__button" type="button">
+                Bresenham
+              </button>
             </li>
-            <li class="lab-selector__item">
-              <button class="lab-selector__button" type="button">Button</button>
-            </li>
-            <li class="lab-selector__item">
-              <button class="lab-selector__button" type="button">
-                Checkbox
+            <li class="algorithm-selector__item">
+              <button class="algorithm-selector__button" type="button">
+                DDA
               </button>
             </li>
           </ul>
-        </aside>
-
-        <section class="view view--properties" id="properties-view">
-          <h2 class="view__title" id="properties-view-title">Properties</h2>
-
-          <div id="properties-root"></div>
         </section>
 
-        <section class="view view--preview" id="preview-view">
-          <h2 class="view__title" id="preview-view-title">Preview</h2>
+        <section class="workspace__properties panel properties-panel">
+          <h2 class="panel__title" id="properties-panel-title">Properties</h2>
 
-          <div id="preview-root"></div>
+          <div class="properties-panel__section grid-settings">
+            <h3 class="grid-settings__title" id="grid-settings__title">
+              Grid settings
+            </h3>
+
+            <div class="setting-field">
+              <label
+                class="setting-field__label"
+                for="grid-settings__columns-input"
+              >
+                Columns
+              </label>
+
+              <output
+                class="setting-field__output"
+                id="grid-settings__columns-output"
+                for="grid-settings__columns-input"
+              >
+                10
+              </output>
+
+              <input
+                class="setting-field__control"
+                type="range"
+                step="1"
+                min="1"
+                max="100"
+                value="10"
+                id="grid-settings__columns-input"
+                name="grid-settings__columns-input"
+              />
+            </div>
+
+            <div class="setting-field">
+              <label
+                class="setting-field__label"
+                for="grid-settings__rows-input"
+              >
+                Rows
+              </label>
+
+              <output
+                class="setting-field__output"
+                id="grid-settings__rows-output"
+                for="grid-settings__rows-input"
+              >
+                10
+              </output>
+
+              <input
+                class="setting-field__control"
+                type="range"
+                step="1"
+                min="1"
+                max="100"
+                value="10"
+                id="grid-settings__rows-input"
+                name="grid-settings__rows-input"
+              />
+            </div>
+
+            <label class="grid-settings__link-control">
+              <input
+                type="checkbox"
+                id="grid-settings__link"
+                name="grid-settings__link"
+              />
+
+              <span> Link columns and rows </span>
+            </label>
+          </div>
+
+          <div class="properties-panel__section grid-summary">
+            <h3 class="grid-summary__title" id="grid-summary__title">
+              Grid summary
+            </h3>
+
+            <dl class="grid-summary__list">
+              <div class="grid-summary__row">
+                <dt>Dimensions</dt>
+                <dd class="grid-summary__value">
+                  <output id="grid-summary__dimensions"></output>
+                </dd>
+              </div>
+
+              <div class="grid-summary__row">
+                <dt>Total cells</dt>
+                <dd class="grid-summary__value">
+                  <output id="grid-summary__total-cells"></output>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </section>
+
+        <section class="workspace__preview panel preview-panel">
+          <h2 class="panel__title" id="preview-title">Preview</h2>
+
+          <canvas class="preview-panel__canvas" id="preview-panel__canvas">
+            Preview is not available
+          </canvas>
+
+          <p id="preview-panel__error" class="preview-panel__error" hidden></p>
         </section>
       </main>
 
-      <footer class="app-footer">
+      <footer class="app-shell__footer app-footer">
         <p>Created by Tord Løfgren</p>
         <p>
           <a

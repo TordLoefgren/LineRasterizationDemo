@@ -1,82 +1,62 @@
-# Interface Lab
+# Line Rasterization Demo
 
-Interactive TypeScript frontend sandbox for exploring user interface elements, CSS, state, browser behavior, and DOM rendering.
+Interactive TypeScript application for visualizing how line-drawing algorithms traverse a grid.
 
 ## Status
 
 **In progress.**
 
-This project is currently in its early development phase. The initial setup is in place, and the first version is being built with vanilla HTML, CSS, and TypeScript.
+The application currently supports configurable grid dimensions, linked row and column controls, a live summary, and canvas-based grid rendering.
+
+This repository originally began as **Interface Lab**, a general frontend sandbox. It was later narrowed into a focused line-rasterization project.
 
 ## Purpose
 
-Interface Lab is a small portfolio project for practicing and demonstrating frontend fundamentals.
+The goal is to explore how line segments are converted into discrete grid cells while practicing frontend fundamentals through a small portfolio project.
 
-The goal is to build an interactive browser-based sandbox where user input changes state, styling, and rendered output. The project is meant to explore how common frontend pieces fit together:
+The application will allow users to:
 
-- semantic HTML structure
-- CSS layout and styling
-- TypeScript logic
-- Document Object Model (DOM) interaction
-- UI state
-- form behavior and validation
-- testable frontend logic
+- configure a grid
+- define a line segment
+- select a rasterization algorithm
+- inspect the cells traversed by the line
+- compare different algorithms visually
 
-This is not intended to be a large design system or a full component library. It is a focused learning project with a practical portfolio result.
+The first planned algorithms are Bresenham's line algorithm and the Digital Differential Analyzer (DDA).
 
-## Development plan
+## Development approach
 
-The project will be developed in two main phases.
+The first version is being built with vanilla HTML, CSS, and TypeScript.
 
-### 1. Vanilla TypeScript version
+This phase focuses on:
 
-The first version is built with HTML, CSS, and TypeScript without a frontend framework.
+- semantic HTML
+- component-oriented CSS
+- TypeScript and DOM interaction
+- browser events and application state
+- responsive canvas rendering
+- testable algorithm logic
 
-This phase is focused on understanding the browser fundamentals directly:
-
-```text
-user input → state update → DOM update → visual result
-```
-
-### 2. Vue refactor
-
-After the vanilla version is working, the project will be refactored to Vue.
-
-The purpose of this phase is to compare manual DOM rendering with a component-based frontend approach, while keeping the same general project idea and behavior.
-
-## Planned direction
-
-The finished project should include one or more small interactive labs where the user can change inputs and immediately see the result in a live preview.
-
-The exact scope may change as the project develops.
+After the vanilla version is complete, the application will be refactored to Vue to compare manual DOM management with a component-based approach.
 
 ## Tech stack
-
-Current / planned stack:
 
 - HTML
 - CSS
 - TypeScript
 - Vite
-- Vitest
-- Vue, planned for the later refactor
-
-## What this project is meant to demonstrate
-
-This project is meant to show that I am actively strengthening my web development fundamentals through a practical, structured portfolio project.
-
-The focus is on:
-
-- understanding frontend fundamentals before relying on a framework
-- writing clear and maintainable TypeScript
-- separating state and logic from rendering where possible
-- building small, testable pieces of functionality
-- using a simple project as a foundation for later framework-based development
+- Canvas API
+- Vitest, planned
+- Vue, planned
 
 ## Current milestone
 
-Build the first vanilla TypeScript version with a simple interactive UI lab.
+Add configurable line-segment endpoints and render the segment on the grid.
 
-## Later milestone
+## Later milestones
 
-Refactor the project to Vue and compare the framework-based structure with the original vanilla implementation.
+- implement Bresenham's line algorithm
+- implement the Digital Differential Analyzer
+- visualize traversed grid cells
+- test the algorithm logic
+- refactor the application to Vue

@@ -1,43 +1,49 @@
 # Line Rasterization Demo
 
-Interactive TypeScript application for visualizing how line-drawing algorithms traverse a grid.
+An interactive application for visualizing how line-drawing algorithms select cells in a discrete grid.
+
+[View the live demo](https://tordloefgren.github.io/LineRasterizationDemo/)
 
 ## Status
 
 **In progress.**
 
-The application currently supports configurable grid dimensions, linked row and column controls, a live summary, and canvas-based grid rendering.
+The application currently supports configurable grid dimensions, linked row and column controls, a live grid summary, and responsive canvas rendering.
 
-This repository originally began as **Interface Lab**, a general frontend sandbox. It was later narrowed into a focused line-rasterization project.
+The current milestone is to add configurable line-segment endpoints and render the segment on the grid.
 
 ## Purpose
 
-The goal is to explore how line segments are converted into discrete grid cells while practicing frontend fundamentals through a small portfolio project.
+The main goal of this project is to strengthen and demonstrate my understanding of frontend web development through a small, focused application.
 
-The application will allow users to:
+The first version is being built with vanilla HTML, CSS, and TypeScript so I can work directly with the web platform, including the Document Object Model, browser events, application state, responsive canvas rendering, and testable application logic.
 
-- configure a grid
-- define a line segment
-- select a rasterization algorithm
-- inspect the cells traversed by the line
-- compare different algorithms visually
+Once the vanilla version is complete, I plan to rebuild it with Vue and compare manual DOM management with a component-based approach.
 
-The first planned algorithms are Bresenham's line algorithm and the Digital Differential Analyzer (DDA).
+The line-rasterization topic gives the project a concrete technical problem to solve rather than making it a purely visual frontend exercise.
 
-## Development approach
+## Motivation
 
-The first version is being built with vanilla HTML, CSS, and TypeScript.
+The topic is also partly inspired by a C++ pet project I have just started, where I want to experiment with creating an occupancy grid map from ultrasonic sensor data using an Arduino Uno R3.
 
-This phase focuses on:
+Exploring Bresenham's line algorithm and the Digital Differential Analyzer (DDA) gives me a better understanding of how sensor measurements can be mapped onto discrete grid cells. The grid map project is still very early, but it gives this demo a practical connection to something I may build later.
 
-- semantic HTML
-- component-oriented CSS
-- TypeScript and DOM interaction
-- browser events and application state
-- responsive canvas rendering
-- testable algorithm logic
+## Current features
 
-After the vanilla version is complete, the application will be refactored to Vue to compare manual DOM management with a component-based approach.
+- Configurable grid dimensions
+- Linked row and column controls
+- Live grid summary
+- Responsive canvas-based grid rendering
+
+## Roadmap
+
+- Add configurable line-segment endpoints
+- Render the line segment on the grid
+- Implement Bresenham's line algorithm
+- Implement the Digital Differential Analyzer
+- Visualize traversed grid cells
+- Test the algorithm logic with Vitest
+- Rebuild the application with Vue
 
 ## Tech stack
 
@@ -48,15 +54,3 @@ After the vanilla version is complete, the application will be refactored to Vue
 - Canvas API
 - Vitest, planned
 - Vue, planned
-
-## Current milestone
-
-Add configurable line-segment endpoints and render the segment on the grid.
-
-## Later milestones
-
-- implement Bresenham's line algorithm
-- implement the Digital Differential Analyzer
-- visualize traversed grid cells
-- test the algorithm logic
-- refactor the application to Vue

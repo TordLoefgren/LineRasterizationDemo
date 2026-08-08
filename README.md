@@ -1,56 +1,80 @@
 # Line Rasterization Demo
 
-An interactive application for visualizing how line-drawing algorithms select cells in a discrete grid.
+An interactive application for visualizing how line-drawing algorithms select cells on a grid. The current version focuses on Bresenham's line algorithm, with more algorithms planned.
 
 [View the live demo](https://tordloefgren.github.io/LineRasterizationDemo/)
 
-## Status
+![Line Rasterization Demo showing a Bresenham line across a configurable grid](snapshot.png)
 
-**In progress.**
+## About
 
-The application currently supports configurable grid dimensions, linked row and column controls, a live grid summary, and responsive canvas rendering.
+Users can configure the grid, position the line endpoints with sliders or direct canvas interaction, and see the rasterized result update immediately.
 
-The current milestone is to add configurable line-segment endpoints and render the segment on the grid.
+I am building this project to strengthen my frontend development skills through a concrete technical problem. It also serves as groundwork for a future occupancy-grid application, where line rasterization can be used for grid-based ray casting.
 
-## Purpose
+The first version uses vanilla HTML, CSS, and TypeScript so I can work directly with the web platform and better understand the problems that frameworks solve. I plan to rebuild the application in Vue after developing the vanilla version further.
 
-The main goal of this project is to strengthen and demonstrate my understanding of frontend web development through a small, focused application.
+## Technical notes
 
-The first version is being built with vanilla HTML, CSS, and TypeScript so I can work directly with the web platform, including the Document Object Model, browser events, application state, responsive canvas rendering, and testable application logic.
+- Rendering, geometry, rasterization, and state-transition logic are separated into modules. This keeps the geometry, rasterization, and state logic testable without the UI.
+- State transitions are implemented as pure functions that take the current state and return a new state for rendering.
+- The Bresenham implementation is adapted from published all-octants pseudocode; see [References](#references).
 
-Once the vanilla version is complete, I plan to rebuild it with Vue and compare manual DOM management with a component-based approach.
-
-The line-rasterization topic gives the project a concrete technical problem to solve rather than making it a purely visual frontend exercise.
-
-## Motivation
-
-The topic is also partly inspired by a C++ pet project I have just started, where I want to experiment with creating an occupancy grid map from ultrasonic sensor data using an Arduino Uno R3.
-
-Exploring Bresenham's line algorithm and the Digital Differential Analyzer (DDA) gives me a better understanding of how sensor measurements can be mapped onto discrete grid cells. The grid map project is still very early, but it gives this demo a practical connection to something I may build later.
-
-## Current features
+## Features
 
 - Configurable grid dimensions
-- Linked row and column controls
-- Live grid summary
-- Responsive canvas-based grid rendering
-
-## Roadmap
-
-- Add configurable line-segment endpoints
-- Render the line segment on the grid
-- Implement Bresenham's line algorithm
-- Implement the Digital Differential Analyzer
-- Visualize traversed grid cells
-- Test the algorithm logic with Vitest
-- Rebuild the application with Vue
+- Optional linking of row and column dimensions
+- Line endpoints controlled through sliders or canvas interaction
+- Endpoint clamping when the grid shrinks
+- Bresenham line rasterization
+- Live grid and line-segment summary
+- Responsive canvas rendering
 
 ## Tech stack
 
 - HTML
 - CSS
 - TypeScript
-- Vite
 - Canvas API
-- Vitest, planned
-- Vue, planned
+- Vite
+- Vitest
+- Radix Colors
+
+## Testing
+
+Vitest unit tests cover grid behavior, state transitions, endpoint clamping, and line rasterization across different directions and slopes.
+
+## Requirements
+
+- Git
+- Node.js `^20.19.0` or `>=22.12.0`
+- npm
+
+## Quick start
+
+```sh
+git clone https://github.com/TordLoefgren/LineRasterizationDemo.git
+cd LineRasterizationDemo
+npm install
+npm run dev
+```
+
+Open the local URL printed by Vite. To run the unit tests and create a production build:
+
+```sh
+npm run test:once
+npm run build
+```
+
+## Roadmap
+
+- Add more line-rasterization algorithms
+- Explore layouts and interaction patterns for different devices
+- Audit and improve accessibility
+- Expand cross-browser testing
+- Rebuild the application in Vue
+
+## References
+
+- **David J. Stahl Jr.** – _reference for adapting the Bresenham implementation_<br />
+  ["A Lab Exercise for Rasterizing Lines"](https://diglib.eg.org/handle/10.2312/cgems04-11-1359), Figure 3 (CGEMS / The Eurographics Association, 2008)

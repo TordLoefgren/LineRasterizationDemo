@@ -4,6 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <title>Line Rasterization Demo</title>
   </head>
 
@@ -13,37 +14,12 @@
         <hgroup class="app-header__heading">
           <h1 class="app-header__title">Line Rasterization Demo</h1>
           <p class="app-header__subtitle">
-            Interactive line rasterization, cell by cell.
+            Interactive visualization of line rasterization algorithms
           </p>
         </hgroup>
-
-        <nav class="primary-nav">
-          <ul class="primary-nav__list">
-            <li class="primary-nav__item"><a href="/">Demo</a></li>
-            <li class="primary-nav__item"><a href="/">Algorithms</a></li>
-            <li class="primary-nav__item"><a href="/">About</a></li>
-          </ul>
-        </nav>
       </header>
 
       <main class="app-shell__main workspace">
-        <section class="workspace__algorithm-selector panel algorithm-selector">
-          <h2 class="panel__title">Algorithm</h2>
-
-          <ul class="algorithm-selector__list">
-            <li class="algorithm-selector__item">
-              <button class="algorithm-selector__button" type="button">
-                Bresenham
-              </button>
-            </li>
-            <li class="algorithm-selector__item">
-              <button class="algorithm-selector__button" type="button">
-                DDA
-              </button>
-            </li>
-          </ul>
-        </section>
-
         <section class="workspace__properties panel properties-panel">
           <h2 class="panel__title" id="properties-panel-title">Properties</h2>
 
@@ -65,7 +41,7 @@
                 id="grid-settings__columns-output"
                 for="grid-settings__columns-input"
               >
-                10
+                15
               </output>
 
               <input
@@ -73,8 +49,8 @@
                 type="range"
                 step="1"
                 min="1"
-                max="100"
-                value="10"
+                max="32"
+                value="15"
                 id="grid-settings__columns-input"
                 name="grid-settings__columns-input"
               />
@@ -93,7 +69,7 @@
                 id="grid-settings__rows-output"
                 for="grid-settings__rows-input"
               >
-                10
+                15
               </output>
 
               <input
@@ -101,8 +77,8 @@
                 type="range"
                 step="1"
                 min="1"
-                max="100"
-                value="10"
+                max="32"
+                value="15"
                 id="grid-settings__rows-input"
                 name="grid-settings__rows-input"
               />
@@ -119,23 +95,191 @@
             </label>
           </div>
 
-          <div class="properties-panel__section grid-summary">
-            <h3 class="grid-summary__title" id="grid-summary__title">
-              Grid summary
+          <div class="properties-panel__section line-segment">
+            <h3 class="line-segment__title" id="line-segment__title">
+              Line segment
             </h3>
 
-            <dl class="grid-summary__list">
-              <div class="grid-summary__row">
+            <div class="algorithm-field">
+              <label
+                class="algorithm-field__label"
+                for="line-segment__algorithm-input"
+              >
+                Algorithm
+              </label>
+
+              <select
+                class="algorithm-field__control algorithm-field__select"
+                id="line-segment__algorithm-input"
+                name="line-segment__algorithm-input"
+              >
+                <option value="bresenham" selected>Bresenham</option>
+              </select>
+            </div>
+
+            <div class="endpoint">
+              <p class="endpoint__label">Point A</p>
+
+              <div class="endpoint__fields">
+                <div class="setting-field">
+                  <label
+                    class="setting-field__label"
+                    for="line-segment__ax-input"
+                  >
+                    X
+                  </label>
+
+                  <output
+                    class="setting-field__output"
+                    id="line-segment__ax-output"
+                    for="line-segment__ax-input"
+                  >
+                    4
+                  </output>
+
+                  <input
+                    class="setting-field__control"
+                    type="range"
+                    step="1"
+                    min="0"
+                    max="32"
+                    value="4"
+                    id="line-segment__ax-input"
+                    name="line-segment__ax-input"
+                  />
+                </div>
+
+                <div class="setting-field">
+                  <label
+                    class="setting-field__label"
+                    for="line-segment__ay-input"
+                  >
+                    Y
+                  </label>
+
+                  <output
+                    class="setting-field__output"
+                    id="line-segment__ay-output"
+                    for="line-segment__ay-input"
+                  >
+                    10
+                  </output>
+
+                  <input
+                    class="setting-field__control"
+                    type="range"
+                    step="1"
+                    min="0"
+                    max="32"
+                    value="10"
+                    id="line-segment__ay-input"
+                    name="line-segment__ay-input"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="endpoint">
+              <p class="endpoint__label">Point B</p>
+
+              <div class="endpoint__fields">
+                <div class="setting-field">
+                  <label
+                    class="setting-field__label"
+                    for="line-segment__bx-input"
+                  >
+                    X
+                  </label>
+
+                  <output
+                    class="setting-field__output"
+                    id="line-segment__bx-output"
+                    for="line-segment__bx-input"
+                  >
+                    10
+                  </output>
+
+                  <input
+                    class="setting-field__control"
+                    type="range"
+                    step="1"
+                    min="0"
+                    max="32"
+                    value="10"
+                    id="line-segment__bx-input"
+                    name="line-segment__bx-input"
+                  />
+                </div>
+
+                <div class="setting-field">
+                  <label
+                    class="setting-field__label"
+                    for="line-segment__by-input"
+                  >
+                    Y
+                  </label>
+
+                  <output
+                    class="setting-field__output"
+                    id="line-segment__by-output"
+                    for="line-segment__by-input"
+                  >
+                    4
+                  </output>
+
+                  <input
+                    class="setting-field__control"
+                    type="range"
+                    step="1"
+                    min="0"
+                    max="32"
+                    value="4"
+                    id="line-segment__by-input"
+                    name="line-segment__by-input"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="properties-panel__section summary">
+            <h3 class="summary__title" id="summary__title">Summary</h3>
+
+            <dl class="summary__list">
+              <div class="summary__row">
                 <dt>Dimensions</dt>
-                <dd class="grid-summary__value">
-                  <output id="grid-summary__dimensions"></output>
+                <dd class="summary__value">
+                  <output id="summary__dimensions">15 &times; 15</output>
                 </dd>
               </div>
 
-              <div class="grid-summary__row">
+              <div class="summary__row">
                 <dt>Total cells</dt>
-                <dd class="grid-summary__value">
-                  <output id="grid-summary__total-cells"></output>
+                <dd class="summary__value">
+                  <output id="summary__total-cells">225 cells</output>
+                </dd>
+              </div>
+
+              <div class="summary__row summary__row--section-start">
+                <dt>Line algorithm</dt>
+                <dd class="summary__value">
+                  <output id="summary__line-algorithm">Bresenham</output>
+                </dd>
+              </div>
+
+              <div class="summary__row">
+                <dt>Line segment</dt>
+                <dd class="summary__value">
+                  <output id="summary__line-segment"
+                    >(4, 10) &rarr; (10, 4)</output
+                  >
+                </dd>
+              </div>
+
+              <div class="summary__row">
+                <dt>Rasterized cells</dt>
+                <dd class="summary__value">
+                  <output id="summary__rasterized-cells">7 cells</output>
                 </dd>
               </div>
             </dl>
@@ -144,6 +288,13 @@
 
         <section class="workspace__preview panel preview-panel">
           <h2 class="panel__title" id="preview-title">Preview</h2>
+
+          <p class="preview-panel__hint">
+            <span class="preview-panel__hint-left"> Left click &rarr; A </span>
+            <span class="preview-panel__hint-right">
+              Shift + Left click &rarr; B
+            </span>
+          </p>
 
           <canvas class="preview-panel__canvas" id="preview-panel__canvas">
             Preview is not available
@@ -154,16 +305,20 @@
       </main>
 
       <footer class="app-shell__footer app-footer">
-        <p>Created by Tord Løfgren</p>
-        <p>
+        <p class="app-footer__project">
           <a
-            href="https://github.com/TordLoefgren"
+            class="link"
+            href="https://github.com/TordLoefgren/LineRasterizationDemo"
             target="_blank"
             rel="noopener noreferrer"
           >
             GitHub
           </a>
         </p>
+
+        <output class="app-footer__status" id="app-footer__status">
+          Algorithm: Bresenham &middot; Origin: top-left
+        </output>
       </footer>
     </div>
 

@@ -171,7 +171,9 @@ describe("grid geometry", () => {
 
     it("rejects zero, negative, fractional, NaN, and oversized dimensions", () => {
       // Arrange.
-      function expectInvalidGridDimensions(gridDimensions: GridDimensions) {
+      function expectInvalidGridDimensions(
+        gridDimensions: GridDimensions
+      ): void {
         expect(() => {
           assertValidGridDimensions(gridDimensions)
         }).toThrow("Grid dimensions are invalid")

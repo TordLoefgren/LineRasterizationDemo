@@ -11,7 +11,10 @@ import {
 import type { LineAlgorithm } from "../rasterization/rasterize-line"
 import type { AppState } from "./state"
 
-export function resizeGrid(appState: AppState, gridDimensions: GridDimensions) {
+export function resizeGrid(
+  appState: AppState,
+  gridDimensions: GridDimensions
+): AppState {
   assertValidGridDimensions(gridDimensions)
 
   // The resized grid must always contain both endpoints
@@ -81,7 +84,7 @@ export function setGridDimension(
   appState: AppState,
   dimension: GridDimension,
   value: number
-) {
+): AppState {
   const dimensions = appState.areDimensionsLinked
     ? { columns: value, rows: value }
     : {

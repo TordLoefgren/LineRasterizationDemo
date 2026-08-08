@@ -1,6 +1,8 @@
 import type { CanvasDisplayMetrics } from "./canvas-metrics"
 
-export function getCanvasContext(canvasElement: HTMLCanvasElement) {
+export function getCanvasContext(
+  canvasElement: HTMLCanvasElement
+): CanvasRenderingContext2D {
   const canvasContext = canvasElement.getContext("2d")
   if (!canvasContext) {
     throw new Error("Canvas context was unavailable")
@@ -12,7 +14,7 @@ export function getCanvasContext(canvasElement: HTMLCanvasElement) {
 export function clearCanvas(
   canvasElement: HTMLCanvasElement,
   canvasMetrics: CanvasDisplayMetrics
-) {
+): void {
   const canvasContext = getCanvasContext(canvasElement)
   const {
     cssWidth: canvasWidth,

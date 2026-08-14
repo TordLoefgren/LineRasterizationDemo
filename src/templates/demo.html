@@ -1,0 +1,262 @@
+<div class="view demo-view">
+  <section class="demo-view__properties panel properties-panel">
+    <h2 class="panel__title" id="properties-panel-title">Properties</h2>
+
+    <div class="properties-panel__section grid-settings">
+      <h3 class="grid-settings__title" id="grid-settings__title">
+        Grid settings
+      </h3>
+
+      <div class="setting-field">
+        <label class="setting-field__label" for="grid-settings__columns-input">
+          Columns
+        </label>
+
+        <output
+          class="setting-field__output"
+          id="grid-settings__columns-output"
+          for="grid-settings__columns-input"
+        >
+          15
+        </output>
+
+        <input
+          class="setting-field__control"
+          type="range"
+          step="1"
+          min="1"
+          max="32"
+          value="15"
+          id="grid-settings__columns-input"
+          name="grid-settings__columns-input"
+        />
+      </div>
+
+      <div class="setting-field">
+        <label class="setting-field__label" for="grid-settings__rows-input">
+          Rows
+        </label>
+
+        <output
+          class="setting-field__output"
+          id="grid-settings__rows-output"
+          for="grid-settings__rows-input"
+        >
+          15
+        </output>
+
+        <input
+          class="setting-field__control"
+          type="range"
+          step="1"
+          min="1"
+          max="32"
+          value="15"
+          id="grid-settings__rows-input"
+          name="grid-settings__rows-input"
+        />
+      </div>
+
+      <label class="grid-settings__link-control">
+        <input
+          type="checkbox"
+          id="grid-settings__link"
+          name="grid-settings__link"
+        />
+
+        <span> Link columns and rows </span>
+      </label>
+    </div>
+
+    <div class="properties-panel__section line-segment">
+      <h3 class="line-segment__title" id="line-segment__title">Line segment</h3>
+
+      <div class="algorithm-field">
+        <label
+          class="algorithm-field__label"
+          for="line-segment__algorithm-input"
+        >
+          Algorithm
+        </label>
+
+        <select
+          class="algorithm-field__control algorithm-field__select"
+          id="line-segment__algorithm-input"
+          name="line-segment__algorithm-input"
+        >
+          <option value="bresenham" selected>Bresenham</option>
+        </select>
+      </div>
+
+      <div class="endpoint">
+        <p class="endpoint__label">Point A</p>
+
+        <div class="endpoint__fields">
+          <div class="setting-field">
+            <label class="setting-field__label" for="line-segment__ax-input">
+              X
+            </label>
+
+            <output
+              class="setting-field__output"
+              id="line-segment__ax-output"
+              for="line-segment__ax-input"
+            >
+              4
+            </output>
+
+            <input
+              class="setting-field__control"
+              type="range"
+              step="1"
+              min="0"
+              max="32"
+              value="4"
+              id="line-segment__ax-input"
+              name="line-segment__ax-input"
+            />
+          </div>
+
+          <div class="setting-field">
+            <label class="setting-field__label" for="line-segment__ay-input">
+              Y
+            </label>
+
+            <output
+              class="setting-field__output"
+              id="line-segment__ay-output"
+              for="line-segment__ay-input"
+            >
+              10
+            </output>
+
+            <input
+              class="setting-field__control"
+              type="range"
+              step="1"
+              min="0"
+              max="32"
+              value="10"
+              id="line-segment__ay-input"
+              name="line-segment__ay-input"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="endpoint">
+        <p class="endpoint__label">Point B</p>
+
+        <div class="endpoint__fields">
+          <div class="setting-field">
+            <label class="setting-field__label" for="line-segment__bx-input">
+              X
+            </label>
+
+            <output
+              class="setting-field__output"
+              id="line-segment__bx-output"
+              for="line-segment__bx-input"
+            >
+              10
+            </output>
+
+            <input
+              class="setting-field__control"
+              type="range"
+              step="1"
+              min="0"
+              max="32"
+              value="10"
+              id="line-segment__bx-input"
+              name="line-segment__bx-input"
+            />
+          </div>
+
+          <div class="setting-field">
+            <label class="setting-field__label" for="line-segment__by-input">
+              Y
+            </label>
+
+            <output
+              class="setting-field__output"
+              id="line-segment__by-output"
+              for="line-segment__by-input"
+            >
+              4
+            </output>
+
+            <input
+              class="setting-field__control"
+              type="range"
+              step="1"
+              min="0"
+              max="32"
+              value="4"
+              id="line-segment__by-input"
+              name="line-segment__by-input"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="properties-panel__section summary">
+      <h3 class="summary__title" id="summary__title">Summary</h3>
+
+      <dl class="summary__list">
+        <div class="summary__row">
+          <dt>Dimensions</dt>
+          <dd class="summary__value">
+            <output id="summary__dimensions">15 &times; 15</output>
+          </dd>
+        </div>
+
+        <div class="summary__row">
+          <dt>Total cells</dt>
+          <dd class="summary__value">
+            <output id="summary__total-cells">225 cells</output>
+          </dd>
+        </div>
+
+        <div class="summary__row summary__row--section-start">
+          <dt>Line algorithm</dt>
+          <dd class="summary__value">
+            <output id="summary__line-algorithm">Bresenham</output>
+          </dd>
+        </div>
+
+        <div class="summary__row">
+          <dt>Line segment</dt>
+          <dd class="summary__value">
+            <output id="summary__line-segment">(4, 10) &rarr; (10, 4)</output>
+          </dd>
+        </div>
+
+        <div class="summary__row">
+          <dt>Rasterized cells</dt>
+          <dd class="summary__value">
+            <output id="summary__rasterized-cells">7 cells</output>
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="demo-view__preview panel preview-panel">
+    <h2 class="panel__title" id="preview-panel__title">Preview</h2>
+
+    <p class="preview-panel__hint">
+      <span class="preview-panel__hint-left"> Left click &rarr; A </span>
+      <span class="preview-panel__hint-right">
+        Shift + Left click &rarr; B
+      </span>
+    </p>
+
+    <canvas class="preview-panel__canvas" id="preview-panel__canvas">
+      Preview is not available
+    </canvas>
+
+    <p id="preview-panel__error" class="preview-panel__error" hidden></p>
+  </section>
+</div>

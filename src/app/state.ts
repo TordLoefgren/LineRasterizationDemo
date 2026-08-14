@@ -8,6 +8,9 @@ export interface AppState {
   readonly lineAlgorithm: LineAlgorithm
 }
 
+export type GetStateFn = () => AppState
+export type SetStateFn = (nextState: AppState) => void
+
 export function createDefaultAppState(): AppState {
   return {
     gridDimensions: { columns: 15, rows: 15 },

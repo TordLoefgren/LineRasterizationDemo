@@ -1,4 +1,4 @@
-export interface AppElements {
+export interface DemoElements {
   // Grid settings.
   columnsInput: HTMLInputElement
   columnsOutput: HTMLOutputElement
@@ -29,9 +29,11 @@ export interface AppElements {
   // Preview.
   canvas: HTMLCanvasElement
   previewError: HTMLParagraphElement
+}
 
-  // Footer.
-  footerStatusOutput: HTMLOutputElement
+export interface AppShellElements {
+  navigation: HTMLElement
+  mainContent: HTMLElement
 }
 
 export function requireElement<TElement extends Element>(
@@ -45,7 +47,14 @@ export function requireElement<TElement extends Element>(
   return element
 }
 
-export function queryAppElements(): AppElements {
+export function queryAppShellElements(): AppShellElements {
+  return {
+    navigation: requireElement<HTMLElement>(".primary-nav"),
+    mainContent: requireElement<HTMLElement>(".main-content")
+  }
+}
+
+export function queryDemoElements(): DemoElements {
   return {
     columnsInput: requireElement<HTMLInputElement>(
       "#grid-settings__columns-input"
@@ -107,8 +116,6 @@ export function queryAppElements(): AppElements {
     ),
 
     canvas: requireElement<HTMLCanvasElement>("#preview-panel__canvas"),
-    previewError: requireElement<HTMLParagraphElement>("#preview-panel__error"),
-
-    footerStatusOutput: requireElement<HTMLOutputElement>("#app-footer__status")
+    previewError: requireElement<HTMLParagraphElement>("#preview-panel__error")
   }
 }

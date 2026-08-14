@@ -17,7 +17,7 @@ export function resizeGrid(
 ): AppState {
   assertValidGridDimensions(gridDimensions)
 
-  // The resized grid must always contain both endpoints
+  // The resized grid must always contain both endpoints.
   const coordinateA: GridCoordinate = {
     x:
       appState.lineSegment.coordinateA.x >= gridDimensions.columns
@@ -106,7 +106,7 @@ export function setDimensionsLinked(
     }
   }
 
-  // When dimensions are linked, the rows will be set to the columns value
+  // When dimensions are linked, the rows will be set to the columns value.
   const linkedState = {
     ...appState,
     areDimensionsLinked: true

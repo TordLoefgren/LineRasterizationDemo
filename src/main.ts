@@ -1,10 +1,10 @@
 import "./style.css"
 import { startApp } from "./app/app"
-import { queryAppElements } from "./ui/elements"
+import { queryAppShellElements } from "./ui/elements"
 
 function main(): void {
-  const appElements = queryAppElements()
-  startApp(appElements)
+  const appShellElements = queryAppShellElements()
+  startApp(appShellElements)
 }
 
 main()

@@ -38,6 +38,9 @@ jobs:
       - name: Build application
         run: npm run build
 
+      - name: Create SPA routing fallback
+        run: cp dist/index.html dist/404.html
+
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v6
 

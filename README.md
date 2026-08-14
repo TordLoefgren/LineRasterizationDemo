@@ -16,6 +16,7 @@ The first version uses vanilla HTML, CSS, and TypeScript so I can work directly 
 
 ## Technical notes
 
+- The single-page application uses URL-based routing. Demo state lives outside the routed views, so it is preserved during client-side navigation.
 - Rendering, geometry, rasterization, and state-transition logic are separated into modules. This keeps the geometry, rasterization, and state logic testable without the UI.
 - State transitions are implemented as pure functions that take the current state and return a new state for rendering.
 - The Bresenham implementation is adapted from published all-octants pseudocode; see [References](#references).

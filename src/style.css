@@ -96,8 +96,10 @@ body {
 }
 
 .app-shell__main {
+  display: flex;
   flex: 1;
   min-height: 0;
+
   background-color: var(--surface-workspace);
 }
 
@@ -141,11 +143,33 @@ body {
   line-height: 1;
 }
 
+.primary-nav {
+  margin-left: auto;
+}
+
+.primary-nav .link[aria-current="page"] {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.primary-nav__list {
+  display: flex;
+  gap: var(--space-medium);
+
+  list-style: none;
+  padding: 0;
+}
+
+.primary-nav__item {
+  font-size: 1.1rem;
+}
+
 .link {
   color: var(--text);
   text-decoration: none;
   border-bottom: 1px solid var(--border);
 }
+
 .link:visited {
   color: var(--text);
 }
@@ -155,25 +179,29 @@ body {
   border-bottom-color: var(--accent);
 }
 
-/* =============== Main / Workspace =============== */
+/* =============== Main / Views =============== */
 
-.workspace {
+.view {
   display: flex;
+  flex: 1;
   gap: var(--space-medium);
 
+  min-width: 0;
+  min-height: 0;
   padding: var(--space-medium);
-
-  background: var(--surface-workspace);
-  border-radius: 4px;
 
   overflow: hidden;
 }
 
-.workspace__properties {
+.view--single > .panel {
+  flex: 1 1 0;
+}
+
+.demo-view__properties {
   flex: 30 1 0;
 }
 
-.workspace__preview {
+.demo-view__preview {
   flex: 70 1 0;
 }
 
@@ -338,6 +366,21 @@ body {
   color: var(--error);
   border: 1px dashed var(--error);
   border-radius: 6px;
+}
+
+/* =============== Content =============== */
+
+.content-panel__body {
+  display: grid;
+  gap: var(--space-medium);
+
+  width: min(100%, 70ch);
+  margin-inline: auto;
+}
+
+.content-panel__section {
+  display: grid;
+  gap: var(--space-small);
 }
 
 /* =============== Footer =============== */
